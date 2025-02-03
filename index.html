@@ -1,0 +1,45 @@
+
+<html>
+<head>
+    <title> CodeEditor</title>
+    <h1 style="color: white;"> Online Code Editor</h1>
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+<div class = "container"> 
+    <div class="left">
+        <label> Html </label>
+        <textarea id="html" onkeyup="run()"></textarea>
+        
+        <label> css </label>
+        <textarea id="css" onkeyup="run()"></textarea>
+
+        <label>jscript </label>
+        <textarea id="js" onkeyup="run()"></textarea>
+    </div>
+
+    
+    <div class="right">
+       <label> output</label>
+       <iframe id="output">output</iframe>
+        
+    </div>
+    
+  
+    
+
+</div>
+<script>
+  function run(){
+    let htmlcode=document.getElementById("html").value;
+    let csscode=document.getElementById("css").value;
+    let jscode=document.getElementById("js").value;
+    let output=document.getElementById("output");
+    output.contentDocument.body.innerHTML=htmlcode+"<style>"+csscode+"</style>";
+    output.contentWindow.eval(jscode);
+}
+
+</script>
+</body>
+</html>
